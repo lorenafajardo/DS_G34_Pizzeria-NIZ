@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { AbstractControl, FormBuilder, FormControl, FormGroup, Validators} from '@angular/forms';
-import validation from 'src/app/validations/validations';
+import validations from '../../validations/validations';
 
 @Component({
   selector: 'app-form',
@@ -35,7 +35,7 @@ export class FormComponent implements OnInit {
       acceptTerms:[false,Validators.requiredTrue],
     },
     {
-      Validators:[validation.match('password','confirmPassword')]
+      validators:[validations.match('password','confirmPassword')]
     }
     );
   }
