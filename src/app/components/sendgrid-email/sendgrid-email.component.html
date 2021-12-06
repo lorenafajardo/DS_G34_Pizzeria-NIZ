@@ -1,0 +1,24 @@
+<div class="toast" role="alert" aria-live="assertive" aria-atomic="true" style="background-color:black;">
+<div class="toast-header">
+    <strong class="mr-auto">Reto IV</strong>
+    <small class="text-muted">Grupo</small>
+    <button type="button" class="ml-2 mb-1 close" data-dismiss="toast" aria-label="cerrar">
+        <span aria-hidden="true">&times;</span>
+    </button>
+</div>
+<div class="toast-body">Información Pizzeria NIZ</div>
+</div>
+<div class="card text-center">
+    <div class="card-body">
+        <div class="card-title">Registro</div>
+        <div class="card-text">
+            <form [formGroup] = "form" (submit) = "onSubscribeClick()">
+                <input type="email"
+                class="form-control"
+                placeholder="Correo electronico"
+                formControlName="email">
+                <button type="submit" class="btn btn-success">Subscribe</button>
+            </form>
+        </div>
+    </div>
+</div>
