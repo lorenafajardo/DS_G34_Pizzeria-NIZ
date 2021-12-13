@@ -1,0 +1,36 @@
+<div class="container">
+    <div class="abs-center">
+        <div class="card col-5">
+            <div class="card-header text-center"><strong>Productos</strong></div>
+            <div class="card-body">
+                <p class="card-text">Eliminar Producto</p>
+                <div class="alert alert-info" role="alert">
+                    Has seleccionado la opción de eliminar
+                </div>
+                <div class="card">
+                    <div class="card-header">Producto</div>
+                    <div class="card-body">
+                        <p class="card-text">Editar Producto</p>
+                        <ul>
+                            <li>
+                                <strong>Id: {{ id }}</strong>
+                            </li>
+                            <li>
+                                <strong>Nombre Producto: {{ name }}</strong>
+                            </li>
+                        </ul>
+                        <div class="row">
+                            <div class="form-group">
+                                <a routerLink="/administration/list-product" class="btn btn-danger">Cancelar</a> &nbsp;&nbsp;&nbsp;&nbsp;
+                                <button (click)="RemoveRecord()" class="btn btn-success">
+                 Confirmar
+               </button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<br /><br /><br /><br /><br /><br /><br /><br /><br />

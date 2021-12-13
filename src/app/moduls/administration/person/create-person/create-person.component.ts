@@ -1,0 +1,62 @@
+import { Component, OnInit } from '@angular/core';
+import { AbstractControl, FormBuilder, FormControl, FormGroup, Validators} from '@angular/forms';
+import validations from 'src/app/moduls/validations/validations';
+
+@Component({
+  selector: 'app-create-person',
+  templateUrl: './create-person.component.html',
+  styleUrls: ['./create-person.component.css']
+})
+export class CreatePersonComponent implements OnInit {
+
+   form: FormGroup = new FormGroup({
+      user_name: new FormControl(''),
+      first_lastname: new FormControl(''),
+      second_lastname: new FormControl(''),
+      email: new FormControl(''),
+      password: new FormControl(''),
+      confirmPassword: new FormControl(''),
+      acceptTerms:new FormControl(false)
+    });
+  
+    submitted = false;
+  
+    constructor(private formBuilder:FormBuilder) { }
+  
+    ngOnInit(): void {
+  
+      this.form = this.formBuilder.group({
+        user_name:['',[Validators.required, Validators.minLength(3)]],
+        first_lastname:['',[Validators.required, Validators.minLength(3)]],
+        second_lastname:['',[Validators.required, Validators.minLength(3)]],
+        email:['',[Validators.required, Validators.email]],
+        password:['',[Validators.required, Validators.minLength(8)]],
+        confirmPassword:['',Validators.required],
+        acceptTerms:[false,Validators.requiredTrue]
+      },
+      {
+        validators: [validations.match('password','confirmPassword')]
+      }
+     );
+    }
+  
+      get f ():{[key:string]:AbstractControl}{
+        return this.form.controls;
+      }
+  
+      onSubmit(): void{
+        this.submitted =true;
+        if (this.form.invalid){
+          return;
+        }
+        console.log(JSON.stringify(this.form.value, null, 2));
+      }
+  
+      onReset(): void{
+        this.submitted = false;
+        this.form.reset();
+      }
+  }
+  
+  
+  
